@@ -32,7 +32,7 @@ def getHPRdevice(filepath):
                     .mapValues(lambda x: float(x[0])/float(x[1])) \
                     .max()
         print("\n\n"+ratings[0])
-        return
+    return
 
 def main(filepath):
     """
