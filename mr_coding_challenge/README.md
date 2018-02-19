@@ -8,8 +8,8 @@ The problem is to find the device type, from a list of devices, that has the hig
 https://sites.google.com/a/nyansa.com/nyansa-programming-exercise-map-reduce/
 
 # Requirements
-Python 2.7.12
-spark 2.2.1
+Python 2.7.12  
+spark 2.2.1  
 pyspark
 
 # Examples
