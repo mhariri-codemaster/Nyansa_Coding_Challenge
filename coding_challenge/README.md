@@ -1,8 +1,8 @@
 # Table of Contents
-1. [Problem Statement](README.md#Problem Statement)
-2. [Complexity Analysis](README.md#Complexity Analysis)
-3. [Requirements](README.md#Requirements)
-4. [Examples](README.md#Examples)
+1. [Problem Statement](README.md#problem_statement)
+2. [Complexity Analysis](README.md#complexity_analysis)
+3. [Requirements](README.md#requirements)
+4. [Examples](README.md#examples)
 
 # Problem Statement
 The problem is to summarize a list of unordered url and timestamp combinations. The full problem description can be found at:  
@@ -27,7 +27,7 @@ Therefore looping through all the records and sorting will require O(NlogN) time
 Python 2.7
 
 # Examples
-To run the xample input file given in examples/input.txt:  
+To run the example input file given in examples/input.txt:  
 $ python src/summarize.py examples/input.txt  
 or  
 $ chmod 755 run.sh  
