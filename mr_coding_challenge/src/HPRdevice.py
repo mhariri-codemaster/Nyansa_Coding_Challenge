@@ -15,7 +15,7 @@ def spark_manager():
     try:
         yield spark_context
     finally:
-	    spark_context.stop()
+	spark_context.stop()
 
 def tupleAdd(T1,T2):
     return (T1[0] + T2[0], T1[1] + T2[1])
