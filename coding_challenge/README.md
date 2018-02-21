@@ -27,7 +27,7 @@ printing the urls is O(N)
 Therefore looping through all the records and sorting will require O(NlogN) time and O(N) memory
 
 ## src/summarize2.py
-O(N) as follows:
+O(N) as follows:  
 **Stage 1:**  
 The code will build the records line by line form the input file. The number of lines will be O(N) based on the assumptions above  
 The input line is split O(1)  

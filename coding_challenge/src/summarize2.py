@@ -24,11 +24,11 @@ def summarizeFile(filepath):
     with open(filepath, 'r') as lines:
         Record = {}
         count = {} # max count for each date
-        not_empty_lines = (line for line in lines if line.split())
-        for line in not_empty_lines:
-            timestamp, url = line.split('|')
-            date = datetime.datetime.utcfromtimestamp(int(timestamp)).date()
-            updateRecord(Record,count,date,url)
+        for line in lines:
+            if line.split():
+                timestamp, url = line.split('|')
+                date = datetime.datetime.utcfromtimestamp(int(timestamp)).date()
+                updateRecord(Record,count,date,url)
     dates = sorted(Record.keys())
     for date in dates:
         print(date.strftime("%m/%d/%Y")+" GMT")
