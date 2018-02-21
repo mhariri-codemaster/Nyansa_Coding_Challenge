@@ -9,7 +9,10 @@ The problem is to summarize a list of unordered url and timestamp combinations. 
 https://sites.google.com/a/nyansa.com/nyansa-programming-exercise/
 
 # Complexity Analysis
-If N is the number of unique urls in the file and assuming that the number of url counts and dates is O(1) compared to N (The problem statement indicates that these values are much smaller than N) then the complexity of the code will be O(NlogN) as follows:  
+If N is the number of unique urls in the file and assuming that the number of url counts and dates is O(1) compared to N (The problem statement indicates that these values are much smaller than N) then the complexity of the code will be:  
+
+## src/summarize.py
+O(NlogN) as follows:  
 **Stage 1:**  
 The code will build the records line by line form the input file. The number of lines will be O(N) based on the assumptions above  
 The input line is split O(1)  
@@ -22,13 +25,29 @@ An O(1) loops are required over the dates
 Sorting the urls for each date is O(NlogN)  
 printing the urls is O(N)  
 Therefore looping through all the records and sorting will require O(NlogN) time and O(N) memory
- 
+
+## src/summarize2.py
+O(N) as follows:
+**Stage 1:**  
+The code will build the records line by line form the input file. The number of lines will be O(N) based on the assumptions above  
+The input line is split O(1)  
+The timestamp is converted to date O(1)  
+The new url is added or updated in the record O(1)  
+Therefore, reading the file and updating the record will require O(N) time and O(N) memory  
+**Stage 2:**  
+The dates are sorted. Since we assumed O(1) dates then this will require O(1)  
+An O(1) loops are required over the dates  
+No sorting of the urls is required  
+printing the urls is O(N)  
+Therefore looping through all the records and sorting will require O(N) time and O(N) memory
+
 # Requirements
 Python 2.7
 
 # Examples
 To run the example input file given in examples/input.txt:  
 $ python src/summarize.py examples/input.txt  
+$ python src/summarize2.py examples/input.txt  
 or  
 $ chmod 755 run.sh  
 $ ./run.sh

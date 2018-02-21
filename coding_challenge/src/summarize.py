@@ -13,15 +13,15 @@ def updateRecord(Record,date,url):
 def summarizeFile(filepath):
     with open(filepath, 'r') as lines:
         Record = {}
-        not_empty_lines = (line for line in lines if line.split())
-        for line in not_empty_lines:
-            timestamp, url = line.split('|')
-            try:
-                date = datetime.datetime.utcfromtimestamp(int(timestamp)).date()
-                updateRecord(Record,date,url)
-            except ValueError:
-                print("Invalid timestamp "+timestamp+" encountered. Skipping ...")
-                continue
+        for line in lines:
+            if line.split():
+                timestamp, url = line.split('|')
+                try:
+                    date = datetime.datetime.utcfromtimestamp(int(timestamp)).date()
+                    updateRecord(Record,date,url)
+                except ValueError:
+                    print("Invalid timestamp "+timestamp+" encountered. Skipping ...")
+                    continue
     dates = sorted(Record.keys())
     for date in dates:
         print(date.strftime("%m/%d/%Y")+" GMT")
