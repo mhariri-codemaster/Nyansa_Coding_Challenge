@@ -8,13 +8,18 @@ def updateRecord(Record,date,url):
             if url in Record[date][count]:
                 check = False
                 Record[date][count].remove(url)
+                if not Record[date][count]:
+                    del Record[date][count]
                 if count + 1 in Record[date]:
                     Record[date][count + 1].add(url)
                 else:
                     Record[date][count + 1] = set([url])
                 break
         if check:
-            Record[date][1].add(url)
+            if 1 in Record[date]:
+                Record[date][1].add(url)
+            else:
+                Record[date][1] = set([url])
     else:
         Record[date] = {1: set([url])}
 
