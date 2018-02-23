@@ -1,6 +1,12 @@
 import sys
 import datetime
 
+def addURL(Date_Record,count,url):
+    if count in Date_Record:
+        Date_Record[count].add(url)
+    else:
+        Date_Record[count] = set([url])
+
 def updateRecord(Record,date,url):
     if date in Record:
         check = True
@@ -10,16 +16,10 @@ def updateRecord(Record,date,url):
                 Record[date][count].remove(url)
                 if not Record[date][count]:
                     del Record[date][count]
-                if count + 1 in Record[date]:
-                    Record[date][count + 1].add(url)
-                else:
-                    Record[date][count + 1] = set([url])
+                addURL(Record[date],count+1,url)
                 break
         if check:
-            if 1 in Record[date]:
-                Record[date][1].add(url)
-            else:
-                Record[date][1] = set([url])
+            addURL(Record[date], 1, url)
     else:
         Record[date] = {1: set([url])}
 
