@@ -4,14 +4,14 @@ import datetime
 def updateRecord(Record,date,url):
     if date in Record:
         check = True
-        for j in Record[date]:
-            if url in Record[date][j]:
+        for count in Record[date]:
+            if url in Record[date][count]:
                 check = False
-                Record[date][j].remove(url)
-                if j + 1 in Record[date]:
-                    Record[date][j + 1].add(url)
+                Record[date][count].remove(url)
+                if count + 1 in Record[date]:
+                    Record[date][count + 1].add(url)
                 else:
-                    Record[date][j + 1] = set([url])
+                    Record[date][count + 1] = set([url])
                 break
         if check:
             Record[date][1].add(url)
